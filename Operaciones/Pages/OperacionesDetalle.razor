@@ -1,0 +1,58 @@
+﻿@page "/operaciones" 
+@using Matematica
+
+<h1>Operaciones Aricmetica</h1>
+
+<EditForm Model="@operation">
+    <table class="table">
+        <tr>
+            <td>Digite Numerador: </td>
+            <td><input type="number" @bind="operation.Num1" /> </td>
+        </tr>
+        <tr>
+            <td>Digite Denominador: </td>
+            <td><input type="number" @bind="operation.Num2" /> </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Mostrar Resultado" @onclick="Calculo" />
+
+            </td>
+        </tr>
+        <tr>
+            <td>Resultado Suma  : </td>
+            <td><input type="number" @bind="operation.ResulS" /> </td>
+        </tr>
+        <tr>
+            <td>Resultado Resta : </td>
+            <td><input type="number" @bind="operation.ResulR" /> </td>
+        </tr>
+        <tr>
+            <td>Resultado Multiplicacion : </td>
+            <td><input type="number" @bind="operation.ResulM" /> </td>
+        </tr>
+
+
+
+    </table>
+</EditForm>
+
+@code {
+
+
+    Operation operation = new Operation();
+
+    public void Calculo()
+    {
+        int num1 = operation.Num1;
+        int num2 = operation.Num2;
+
+        operation.ResulS = num1 + num2;
+        operation.ResulR = num1 - num2;
+        operation.ResulM = num1 * num2;
+
+
+    }
+
+}
